@@ -111,7 +111,7 @@
                     </li>
                 </ul>
             </div>
-            <a href="{{ route('personal.profile') }}" class="btn btn-outline-primary btn-sm  ml-4">Go Back</a>
+            {{-- <a href="{{ route('personal.profile') }}" class="btn btn-outline-primary btn-sm  ml-4">Go Back</a> --}}
 
         </div>
     @endsection

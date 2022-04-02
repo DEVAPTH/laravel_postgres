@@ -16,28 +16,4 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function personal_profile()
-    {
-        $datas =DB::connection('pgsql')->table('personal_profiles')->get();
-        return view('home',compact('datas'));
-    }
-
-    public function personal_list($id)
-    {
-        $data = PersonalProfile::find($id);
-        return view('layouts.personal.detail',compact('data'));
-    }
-
-    public function personal_detail()
-    {
-        $datas=DB::connection('pgsql_second')->table('personal_details')->get();
-        return view('layouts.personal.personal_data',compact('datas'));
-    }
-
-    public function personal_show($id)
-    {
-        // $detail = PersonalDetail::find($id);
-        // dd($detail);
-    }
-
 }

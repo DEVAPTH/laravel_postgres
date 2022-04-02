@@ -11,4 +11,6 @@ class S2DogReport extends Model
 
     protected $connection = 'pgsql_db2';
 
+    protected $guarded = [];
+
 }

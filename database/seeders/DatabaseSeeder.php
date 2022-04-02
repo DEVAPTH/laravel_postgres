@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         S1DogReport::factory(50)->create();
-        // S2DogReport::factory(50)->create();
+        S2DogReport::factory(50)->create();
         S3DogReport::factory(50)->create();
 
         $this->call(

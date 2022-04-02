@@ -18,7 +18,8 @@ use App\Http\Controllers\PersonalDetailDataController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    return redirect('login');
 });
 
 // Route::middleware(['auth', 'admin'])->get('/dashboard', function () {

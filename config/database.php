@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION_DB1', 'pgsql'),
+    'default' => env('DB_CONNECTION_DB3', 'pgsql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -63,7 +63,7 @@ return [
             ]) : [],
         ],
 
-        'pgsql' => [
+        'pgsql_db1' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST_DB1', '127.0.0.1'),
@@ -77,7 +77,7 @@ return [
             'search_path' => 'public',
             'sslmode' => 'prefer',
         ],
-        'pgsql_second' => [
+        'pgsql_db2' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST_DB2', '127.0.0.1'),
@@ -91,7 +91,7 @@ return [
             'search_path' => 'public',
             'sslmode' => 'prefer',
         ],
-        'pgsql_third' => [
+        'pgsql_db3' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST_DB3', '127.0.0.1'),

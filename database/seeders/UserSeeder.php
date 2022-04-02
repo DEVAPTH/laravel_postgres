@@ -17,9 +17,9 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        DB::connection('pgsql_third')->table('users')->insert([
-            'name' => 'APTH',
-            'email' =>'aungphone.dev@gmail.com',
+        DB::table('users')->insert([
+            'name' => 'S3 Admin',
+            'email' =>'admin@s3.com',
             'password' => Hash::make('testadmin'),
             'type' => 'admin',
         ]);

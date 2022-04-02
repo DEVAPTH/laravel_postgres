@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'pgsql'),
+    'default' => env('DB_CONNECTION_DB3', 'pgsql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -63,42 +63,42 @@ return [
             ]) : [],
         ],
 
-        'pgsql' => [
+        'pgsql_db1' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'host' => env('DB_HOST_DB1', '127.0.0.1'),
+            'port' => env('DB_PORT_DB1', '5432'),
+            'database' => env('DB_DATABASE_DB1', 'forge'),
+            'username' => env('DB_USERNAME_DB1', 'forge'),
+            'password' => env('DB_PASSWORD_DB1', ''),
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
             'search_path' => 'public',
             'sslmode' => 'prefer',
         ],
-        'pgsql_second' => [
+        'pgsql_db2' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST_SECOND', '127.0.0.1'),
-            'port' => env('DB_PORT_SECOND', '5433'),
-            'database' => env('DB_DATABASE_SECOND', 'spy1'),
-            'username' => env('DB_USERNAME_SECOND', 'postgres'),
-            'password' => env('DB_PASSWORD_SECOND', 'devapth'),
+            'host' => env('DB_HOST_DB2', '127.0.0.1'),
+            'port' => env('DB_PORT_DB2', '5433'),
+            'database' => env('DB_DATABASE_DB2', 'spy1'),
+            'username' => env('DB_USERNAME_DB2', 'postgres'),
+            'password' => env('DB_PASSWORD_DB2', 'devapth'),
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
             'search_path' => 'public',
             'sslmode' => 'prefer',
         ],
-        'pgsql_third' => [
+        'pgsql_db3' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST_THIRD', '127.0.0.1'),
-            'port' => env('DB_PORT_THIRD', '5433'),
-            'database' => env('DB_DATABASE_THIRD', 'spy2'),
-            'username' => env('DB_USERNAME_THIRD', 'postgres'),
-            'password' => env('DB_PASSWORD_THIRD', 'devapth'),
+            'host' => env('DB_HOST_DB3', '127.0.0.1'),
+            'port' => env('DB_PORT_DB3', '5433'),
+            'database' => env('DB_DATABASE_DB3', 'spy2'),
+            'username' => env('DB_USERNAME_DB3', 'postgres'),
+            'password' => env('DB_PASSWORD_DB3', 'devapth'),
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,

@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::connection('pgsql')->create('personal_profiles', function (Blueprint $table) {
+        Schema::create('s3_dog_reports', function (Blueprint $table) {
             $table->id();
             $table->string('pic');
             $table->string('nrc_name');
@@ -28,9 +28,9 @@ return new class extends Migration
             $table->boolean('consent_to_responsibility');
             $table->string('report_state');
             $table->date('last_updated');
-            $table->string('moderated_by_id');
+            $table->string('moderated_by');
             $table->string('report_division');
-            $table->string('reported_by_id');
+            $table->string('reported_by');
             $table->string('skin_color');
             $table->text('physical_appearance');
             $table->string('facebook_username');
@@ -46,6 +46,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('personal_profiles');
+        Schema::dropIfExists('s3_dog_reports');
     }
 };

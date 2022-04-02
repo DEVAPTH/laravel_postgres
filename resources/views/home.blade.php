@@ -4,8 +4,7 @@
     <div class="card">
         <div class="card-header">
             <h5>Wanted Personal Data</h5>
-            <span>Lets say you want to sort the fourth column (3) descending and the first column (0) ascending: your order:
-                would look like this: order: [[ 3, 'desc' ], [ 0, 'asc' ]]</span>
+            <a href="{{route('person.create')}}" class="btn btn-primary btn-sm float-right">Create</a>
         </div>
         <div class="card-block">
             <div class="dt-responsive table-responsive">

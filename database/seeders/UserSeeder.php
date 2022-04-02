@@ -17,11 +17,11 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        DB::connection('pgsql')->table('users')->insert([
+        DB::connection('pgsql_third')->table('users')->insert([
             'name' => 'APTH',
             'email' =>'aungphone.dev@gmail.com',
             'password' => Hash::make('testadmin'),
-            'type' => '',
+            'type' => 'admin',
         ]);
     }
 }

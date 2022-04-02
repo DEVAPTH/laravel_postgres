@@ -13,15 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::connection('pgsql_third')->create('users', function (Blueprint $table) {
+        Schema::connection('pgsql_second')->create('person_profiles', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->foreignId('current_team_id')->nullable();
-            $table->string('profile_photo_path', 2048)->nullable();
+            $table->string('age');
+            $table->string('skin_color');
+            $table->text('address');
+            $table->string('photo');
+            $table->text('distinctive_mark');
+            $table->text('crime');
+            $table->string('facebook_url');
+            $table->string('phone');
             $table->timestamps();
         });
     }
@@ -33,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('person_profiles');
     }
 };

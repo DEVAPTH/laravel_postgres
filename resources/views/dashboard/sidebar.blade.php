@@ -9,7 +9,7 @@
                     </a>
                     <ul class="pcoded-submenu">
                         <li class="nav-link {{Request::segment(1)=='home' ? 'active':''}}">">
-                            <a href="{{route('personal.profile')}}" class="waves-effect waves-dark">
+                            <a href="" class="waves-effect waves-dark">
                                 <span class="pcoded-mtext">Personal Profile</span>
                             </a>
                         </li>

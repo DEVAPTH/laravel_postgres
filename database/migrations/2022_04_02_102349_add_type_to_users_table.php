@@ -13,9 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::connection('pgsql_third')->table('users', function (Blueprint $table) {
             $table->string('type')->default('admin');
-
         });
     }
 

@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Custom\CustomHelper;
 use Illuminate\Http\Request;
 use App\Models\PersonalProfile;
 use Illuminate\Support\Facades\DB;
 
-class PersonalProfileData extends Controller
+class PersonalController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -38,7 +39,10 @@ class PersonalProfileData extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $obj = new CustomHelper();
+
+        dd($obj);
+
     }
 
     /**
@@ -52,7 +56,6 @@ class PersonalProfileData extends Controller
         $data = PersonalProfile::find($id);
         // $datas =DB::connection('pgsql')->table('personal_profiles')->get();
         return view('layouts.personal.detail',compact('data'));
-
     }
 
     /**

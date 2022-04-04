@@ -44,6 +44,26 @@ class ReportController extends Controller
         return redirect()->back()->with('status','S1 report copied to S3');
     }
 
+    public function getS3Reports()
+    {
+       $datas = S3DogReport::paginate();
+        return view('dashboard.pages.s3-reports')->with([
+            'datas'=>$datas
+        ]);
+    }
+
+    public function s3reportDetail($id){
+        $data=S3DogReport::find($id);
+        return view('layouts.personal.detail',compact('data'));
+    }
+
+    public function copyS3ToS2($s3_id){
+        $report=S3DogReport::find($s3_id)->toArray();
+        unset($report['id']);
+        S2DogReport::create($report);
+        S3DogReport::destroy($s3_id);
+        return redirect()->back()->with('status','S3 report copied to S2');
+    }
 
 }
 

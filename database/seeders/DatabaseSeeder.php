@@ -24,8 +24,8 @@ class DatabaseSeeder extends Seeder
         S2DogReport::factory(50)->create();
         S3DogReport::factory(50)->create();
 
-        $this->call(
-            UserSeeder::class,
-        );
+        // $this->call(
+        //     UserSeeder::class,
+        // );
     }
 }

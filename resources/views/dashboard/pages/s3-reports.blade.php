@@ -6,6 +6,12 @@
             <h5>Wanted Personal Data S3</h5>
         </div>
         <div class="card-block">
+            @if ($message = Session::get('status'))
+            <p class="alert alert-success">{{$message}}</p>
+            @endif
+            @if ($message = Session::get('error'))
+            <p class="alert alert-danger">{{$message}}</p>
+            @endif
             <div class="dt-responsive table-responsive">
                 <table id="order-table" class="table table-striped table-bordered nowrap">
                     <thead>
@@ -30,7 +36,7 @@
                                 <td>{{ $data->height_inches }}</td>
                                 <td>
                                     <a href="#" class="btn btn-primary btn-sm">Detail</a>
-                                    <a href="#" class="btn btn-success btn-sm">Confirm</a>
+                                    <a href="{{route('db3.copy-s3-to-s2',$data->id)}}" class="btn btn-success btn-sm">Confirm</a>
                                     <a href="#" class="btn btn-danger btn-sm">Delete</a>
                                 </td>
                             </tr>

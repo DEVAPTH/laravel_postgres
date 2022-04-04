@@ -13,9 +13,15 @@
                                 <span class="pcoded-mtext">S1 Data List</span>
                             </a>
                         </li>
-                        <li class="nav-link {{Route::currentRouteName()=='db2.reports' ? 'active':''}}">
+
+                         <li class="nav-link {{Route::currentRouteName()=='db2.reports' ? 'active':''}}">
                             <a href="{{ route('db2.reports')}}" class="waves-effect waves-dark">
                                 <span class="pcoded-mtext">S2 Data List</span>
+                            </a>
+                        </li>
+                        <li class="nav-link {{Route::currentRouteName()=='db3.reports' ? 'active':''}}">
+                            <a href="{{ route('db3.reports')}}" class="waves-effect waves-dark">
+                                <span class="pcoded-mtext">S3 Data List</span>
                             </a>
                         </li>
                     </ul>

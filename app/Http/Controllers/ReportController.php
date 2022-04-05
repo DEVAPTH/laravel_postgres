@@ -17,7 +17,7 @@ class ReportController extends Controller
     }
 
     public function getS2Reports(){
-        $data= S2DogReport::paginate();
+        $data= S2DogReport::orderBy('id','desc')->paginate();
         return view('dashboard.pages.s1-reports')->with([
             'data'=>$data
         ]);
@@ -32,6 +32,7 @@ class ReportController extends Controller
 
      public function s2reportDetail($id){
         $data=S2DogReport::find($id);
+        dd($data);
        return view('layouts.personal.detail',compact('data'));
 
     }
@@ -54,7 +55,7 @@ class ReportController extends Controller
 
     public function s3reportDetail($id){
         $data=S3DogReport::find($id);
-        return view('layouts.personal.detail',compact('data'));
+        return view('layouts.personal.report3_detail',compact('data'));
     }
 
     public function copyS3ToS2($s3_id){

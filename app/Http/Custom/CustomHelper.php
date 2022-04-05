@@ -3,7 +3,9 @@
 namespace App\Http\Custom;
 
 use App\Models\PersonalProfile;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CustomHelper{
 
@@ -33,4 +35,21 @@ class CustomHelper{
             'telegram_username'=>$request->telegram_username
         ]);
     }
+
+    public function adminCreate(Request $request)
+    {
+        $validator = $request->validate([
+            'name'=>'required',
+            'email'=>'required',
+            'password'=>'required',
+        ]);
+
+        User::create([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'password'=>$request->password,
+            'type'=>$request->type,
+        ]);
+    }
+
 }

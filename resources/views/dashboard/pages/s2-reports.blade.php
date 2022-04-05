@@ -29,8 +29,8 @@
                                 <td>{{ $data->height_feet }}</td>
                                 <td>{{ $data->height_inches }}</td>
                                 <td>
-                                    <a href="#" class="btn btn-primary btn-sm">Detail</a>
-                                    <a href="#" class="btn btn-success btn-sm">Confirm</a>
+                                    <a href="{{route('db2.report-detail',$data->id)}}" class="btn btn-primary btn-sm">Detail</a>
+                                    {{-- <a href="#" class="btn btn-success btn-sm">Confirm</a> --}}
                                     <a href="#" class="btn btn-danger btn-sm">Delete</a>
                                 </td>
                             </tr>

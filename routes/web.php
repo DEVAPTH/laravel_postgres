@@ -45,11 +45,17 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('dashboard/copy-s1-to-s3/{s1_id}',[ReportController::class,'copyS1ToS3'])->name('db1.copy-s1-to-s3');
 
     Route::get('/dahsboard/s3-reports', [ReportController::class,'getS3Reports'])->name('db3.reports');
-    Route::get('/dahsboard/s3-reports/{id}', [ReportController::class,'getS3Reports'])->name('db3.report-detail');
+    Route::get('/dahsboard/s3-reports/{id}', [ReportController::class,'s3reportDetail'])->name('db3.report-detail');
     Route::get('/dahsboard/copy-s3-to-s2/{s3_id}', [ReportController::class,'copyS3ToS2'])->name('db3.copy-s3-to-s2');
 
 
     Route::get('dashboard/admin-list',[Controller::class,'getAdminList'])->name('dashboard.admin-list');
+    Route::get('dashboard/admin-create',[Controller::class,'createAdmin'])->name('dashboard.admin-create');
+    Route::post('dashboard/admin-create',[Controller::class,'store']);
+    Route::delete('dashboard/admin-create/{id}',[Controller::class,'destroy'])->name('dashboard.admin-delete');
+
+
+
 
 
 });

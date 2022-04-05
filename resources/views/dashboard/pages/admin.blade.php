@@ -30,7 +30,7 @@
                             <td>{{ Str::limit($data->password, 10) }}</td>
                             <td>
                                 <div class="form-row">
-                                    <a href="" class="btn btn-success btn-sm" style="height:35px;margin-right:10px">Edit</a>
+                                    <a href="{{route('dashboard.admin-edit',$data->id)}}" class="btn btn-success btn-sm" style="height:35px;margin-right:10px">Edit</a>
                                     <form action="{{route('dashboard.admin-delete', $data->id)}}" method="POST">
                                         @csrf
                                         @method('DELETE')
@@ -48,3 +48,5 @@
         </div>
     </div>
 @endsection
+
+

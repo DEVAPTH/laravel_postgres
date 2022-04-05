@@ -44,12 +44,18 @@ class Controller extends BaseController
     public function destroy($id)
     {
         if(Auth::user()->type =='admin'){
-            return redirect()->route('dashboard.admin-list')->with('status','Do not allowed to delete?');
+            return redirect()->route('dashboard.admin-list')->with('status','Do not allowed to delete for admin account?');
         }else{
             $data =  User::find($id);
             $data->delete();
             return redirect()->route('dashboard.admin-list')->with('status','Successfull Data Delete');
         }
+    }
+
+    public function show($id)
+    {
+        $data = User::find($id);
+        return view('dashboard.pages.admin_edit', compact('data'));
     }
 
 

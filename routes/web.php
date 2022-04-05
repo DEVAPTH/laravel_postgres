@@ -53,6 +53,8 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('dashboard/admin-create',[Controller::class,'createAdmin'])->name('dashboard.admin-create');
     Route::post('dashboard/admin-create',[Controller::class,'store']);
     Route::delete('dashboard/admin-create/{id}',[Controller::class,'destroy'])->name('dashboard.admin-delete');
+    Route::get('dashboard/admin-create/{id}',[Controller::class,'show'])->name('dashboard.admin-edit');
+
 
 
 

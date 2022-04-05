@@ -23,19 +23,19 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Name</label>
-                                <input type="text" class="form-control " name="name">
+                                <input value="{{$data->name}}" type="text" class="form-control " name="name">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Email</label>
-                                <input type="text" class="form-control" name="email">
+                                <input value="{{$data->email}}" type="text" class="form-control" name="email">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Password</label>
-                                <input type="password" class="form-control"  name="password" id="myInput">
+                                <input value="{{$data->password}}" type="password" class="form-control"  name="password" id="myInput">
                                 <input type="checkbox" onclick="myFunction()">Show Password
                             </div>
                         </div>
@@ -43,9 +43,8 @@
                             <div class="form-group">
                                 <label for="">Select Type</label>
                                 <select id="type" name="type" class="form-control">
-                                  <option value="Admin">Admin</option>
-                                  <option value="User">User</option>
-                                </select>
+                                    <option value="{{$data->id}}">{{$data->type}}</option>
+                                 </select>
                             </div>
                         </div>
                     </div>

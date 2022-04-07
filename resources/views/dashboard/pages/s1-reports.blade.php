@@ -26,7 +26,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($data as $data)
+                        @foreach ($reports as $data)
                             <tr>
                                 <td>{{ $data->id }}</td>
                                 <td>{{ $data->nrc_name}}</td>
@@ -42,10 +42,11 @@
                             </tr>
 
                         @endforeach
-                        {{-- {{$data->links()}} --}}
                     </tbody>
 
                 </table>
+                {{$reports->links()}}
+
             </div>
         </div>
     </div>

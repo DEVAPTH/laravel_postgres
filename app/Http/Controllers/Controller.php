@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use Illuminate\Http\Request;
 use App\Models\PersonalDetail;
-use App\Models\PersonalDetailData;
 use App\Models\PersonalProfile;
+use App\Http\Custom\CustomHelper;
+use App\Models\PersonalDetailData;
 use Database\Seeders\PersonalData;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -16,28 +20,44 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function personal_profile()
+
+    public function getAdminList()
     {
-        $datas =DB::connection('pgsql')->table('personal_profiles')->get();
-        return view('home',compact('datas'));
+        $admin_list = User::all();
+        return view('dashboard.pages.admin', compact('admin_list'));
     }
 
-    public function personal_list($id)
+    public function createAdmin()
     {
-        $data = PersonalProfile::find($id);
-        return view('layouts.personal.detail',compact('data'));
+        return view('dashboard.pages.admin_create');
     }
 
-    public function personal_detail()
+    public function store(Request $request)
     {
-        $datas=DB::connection('pgsql_second')->table('personal_details')->get();
-        return view('layouts.personal.personal_data',compact('datas'));
+
+        $obj = new CustomHelper();
+        $obj->adminCreate($request);
+
+        return redirect()->route('dashboard.admin-list')->with('status','Successfull Data Create');
     }
 
-    public function personal_show($id)
+    public function destroy($id)
     {
-        // $detail = PersonalDetail::find($id);
-        // dd($detail);
+        if(Auth::user()->type =='admin'){
+            return redirect()->route('dashboard.admin-list')->with('status','Do not allowed to delete for admin account?');
+        }else{
+            $data =  User::find($id);
+            $data->delete();
+            return redirect()->route('dashboard.admin-list')->with('status','Successfull Data Delete');
+        }
     }
+
+    public function show($id)
+    {
+        $data = User::find($id);
+        return view('dashboard.pages.admin_edit', compact('data'));
+    }
+
+
 
 }

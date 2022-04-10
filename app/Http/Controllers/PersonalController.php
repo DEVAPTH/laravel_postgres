@@ -16,7 +16,7 @@ class PersonalController extends Controller
      */
     public function index()
     {
-        $datas =DB::connection('pgsql')->table('personal_profiles')->get();
+        $datas =DB::connection('pgsql_db1')->table('s1_dog_reports')->get();
 
         return view('home',compact('datas'));
     }

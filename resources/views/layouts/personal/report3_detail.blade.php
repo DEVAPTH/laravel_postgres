@@ -86,24 +86,6 @@
                                                 <a href="">{{ $data->telegram_username }}</a>
                                             </div>
                                         </div>
-                                        {{-- <div class="m-t-15">
-                                            <button type="button" data-toggle="tooltip" title="Facebook"
-                                                class="btn btn-facebook btn-mini waves-effect waves-light">
-                                                <span class="icofont icofont-social-facebook"></span>
-                                            </button>
-                                            <button type="button" data-toggle="tooltip" title="Twitter"
-                                                class="btn btn-twitter btn-mini waves-effect waves-light">
-                                                <span class="icofont icofont-social-twitter"></span>
-                                            </button>
-                                            <button type="button" data-toggle="tooltip" title="Linkedin"
-                                                class="btn btn-linkedin btn-mini waves-effect waves-light">
-                                                <span class="icofont icofont-brand-linkedin"></span>
-                                            </button>
-                                            <button type="button" data-toggle="tooltip" title="Drible"
-                                                class="btn btn-dribbble btn-mini waves-effect waves-light">
-                                                <span class="icofont icofont-social-dribble"></span>
-                                            </button>
-                                        </div> --}}
                                     </div>
                                 </div>
                             </div>

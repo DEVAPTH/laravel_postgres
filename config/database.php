@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION_DB3', 'pgsql'),
+    'default' => env('DB_CONNECTION_DB3', 'pgsql_db3'),
 
     /*
     |--------------------------------------------------------------------------
@@ -68,9 +68,9 @@ return [
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST_DB1', '127.0.0.1'),
             'port' => env('DB_PORT_DB1', '5432'),
-            'database' => env('DB_DATABASE_DB1', 'forge'),
-            'username' => env('DB_USERNAME_DB1', 'forge'),
-            'password' => env('DB_PASSWORD_DB1', ''),
+            'database' => env('DB_DATABASE_DB1', 's1'),
+            'username' => env('DB_USERNAME_DB1', 'postgres'),
+            'password' => env('DB_PASSWORD_DB1', 'devapth'),
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
@@ -82,7 +82,7 @@ return [
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST_DB2', '127.0.0.1'),
             'port' => env('DB_PORT_DB2', '5433'),
-            'database' => env('DB_DATABASE_DB2', 'spy1'),
+            'database' => env('DB_DATABASE_DB2', 's2'),
             'username' => env('DB_USERNAME_DB2', 'postgres'),
             'password' => env('DB_PASSWORD_DB2', 'devapth'),
             'charset' => 'utf8',
@@ -96,7 +96,7 @@ return [
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST_DB3', '127.0.0.1'),
             'port' => env('DB_PORT_DB3', '5433'),
-            'database' => env('DB_DATABASE_DB3', 'spy2'),
+            'database' => env('DB_DATABASE_DB3', 's3'),
             'username' => env('DB_USERNAME_DB3', 'postgres'),
             'password' => env('DB_PASSWORD_DB3', 'devapth'),
             'charset' => 'utf8',

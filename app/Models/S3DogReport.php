@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class S3DogReport extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
+
 }

@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Custom\CustomHelper;
 use Illuminate\Http\Request;
-use App\Models\PersonalDetailData;
-use Illuminate\Support\Facades\DB;
 
-class PersonalDetailDataController extends Controller
+class S1Controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class PersonalDetailDataController extends Controller
      */
     public function index()
     {
-        $datas=DB::connection('pgsql_second')->table('personal_details')->get();
-        return view('layouts.personal.personal_data',compact('datas'));
+        //
     }
 
     /**
@@ -26,7 +24,7 @@ class PersonalDetailDataController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.pages.s1-create');
     }
 
     /**
@@ -37,16 +35,18 @@ class PersonalDetailDataController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $obj = new CustomHelper();
+        $obj->createSOneData($request);
 
+        return redirect('/dashboard/s1-reports')->with('status','Successfull Data Create For S1');
+    }
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\PersonalDetailData  $personalDetailData
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(PersonalDetailData $personalDetailData)
+    public function show($id)
     {
         //
     }
@@ -54,10 +54,10 @@ class PersonalDetailDataController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\PersonalDetailData  $personalDetailData
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(PersonalDetailData $personalDetailData)
+    public function edit($id)
     {
         //
     }
@@ -66,10 +66,10 @@ class PersonalDetailDataController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\PersonalDetailData  $personalDetailData
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PersonalDetailData $personalDetailData)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -77,10 +77,10 @@ class PersonalDetailDataController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\PersonalDetailData  $personalDetailData
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PersonalDetailData $personalDetailData)
+    public function destroy($id)
     {
         //
     }

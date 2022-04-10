@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\PersonalProfile;
-use Illuminate\Support\Facades\DB;
+use App\Http\Custom\CustomHelper;
 
-class PersonalProfileData extends Controller
+class S2Controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,7 @@ class PersonalProfileData extends Controller
      */
     public function index()
     {
-        $datas =DB::connection('pgsql')->table('personal_profiles')->get();
-
-        return view('home',compact('datas'));
+        //
     }
 
     /**
@@ -27,7 +24,7 @@ class PersonalProfileData extends Controller
      */
     public function create()
     {
-        return view('layouts.personal.create');
+        return view('dashboard.pages.s1-create');
     }
 
     /**
@@ -38,7 +35,10 @@ class PersonalProfileData extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $obj = new CustomHelper();
+        $obj->createSTwoData($request);
+
+        return redirect('/dashboard/s2-reports')->with('status','Successfull Data Create For S1');
     }
 
     /**
@@ -49,10 +49,7 @@ class PersonalProfileData extends Controller
      */
     public function show($id)
     {
-        $data = PersonalProfile::find($id);
-        // $datas =DB::connection('pgsql')->table('personal_profiles')->get();
-        return view('layouts.personal.detail',compact('data'));
-
+        //
     }
 
     /**

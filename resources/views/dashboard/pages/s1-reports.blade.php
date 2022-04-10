@@ -4,6 +4,7 @@
     <div class="card">
         <div class="card-header">
             <h5>Wanted Personal Data</h5>
+            <a href="{{route('s1.create')}}" class="btn btn-primary btn-sm float-right">CREATE</a>
         </div>
         <div class="card-block">
             @if ($message = Session::get('status'))

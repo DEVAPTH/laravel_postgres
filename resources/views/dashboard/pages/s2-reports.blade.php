@@ -3,7 +3,8 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h5>Wanted Personal Data S3</h5>
+            <h5>Wanted Personal Data S2</h5>
+            <a href="{{route('s2.create')}}" class="btn btn-primary btn-sm float-right">CREATE</a>
         </div>
         <div class="card-block">
             <div class="dt-responsive table-responsive">

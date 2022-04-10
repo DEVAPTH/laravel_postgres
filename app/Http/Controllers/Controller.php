@@ -58,6 +58,14 @@ class Controller extends BaseController
         return view('dashboard.pages.admin_edit', compact('data'));
     }
 
+    public function update(Request $request,$id)
+    {
+        $obj = new CustomHelper();
+        $obj->adminUpdate($request,$id);
+
+        return redirect()->route('dashboard.admin-list')->with('status','Successfull Data Update');
+    }
+
 
 
 }

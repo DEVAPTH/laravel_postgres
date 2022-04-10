@@ -7,6 +7,7 @@ use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\PersonalProfileData;
 use App\Http\Controllers\PersonalDetailDataController;
 use App\Http\Controllers\ReportController;
+use App\Http\Livewire\Dashboard\Pages\S1ReportComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,12 +41,15 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
     Route::get('/dashboard/s1-reports', [ReportController::class,'getS1Reports'])->name('db1.reports');
     Route::get('/dashboard/s2-reports', [ReportController::class,'getS2Reports'])->name('db2.reports');
+    Route::get('/dahsboard/s3-reports', [ReportController::class,'getS3Reports'])->name('db3.reports');
+
+
     Route::get('dashboard/s1-reports/{id}',[ReportController::class,'s1reportDetail'])->name('db1.report-detail');
     Route::get('dashboard/s2-reports/{id}',[ReportController::class,'s2reportDetail'])->name('db2.report-detail');
-    Route::get('dashboard/copy-s1-to-s3/{s1_id}',[ReportController::class,'copyS1ToS3'])->name('db1.copy-s1-to-s3');
-
-    Route::get('/dahsboard/s3-reports', [ReportController::class,'getS3Reports'])->name('db3.reports');
     Route::get('/dahsboard/s3-reports/{id}', [ReportController::class,'s3reportDetail'])->name('db3.report-detail');
+
+
+    Route::get('dashboard/copy-s1-to-s3/{s1_id}',[ReportController::class,'copyS1ToS3'])->name('db1.copy-s1-to-s3');
     Route::get('/dahsboard/copy-s3-to-s2/{s3_id}', [ReportController::class,'copyS3ToS2'])->name('db3.copy-s3-to-s2');
 
 
@@ -56,7 +60,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('dashboard/admin-create/{id}',[Controller::class,'show'])->name('dashboard.admin-edit');
 
 
-
+    Route::get('dashboard/reposts/s1',S1ReportComponent::class)->name('dashboard.reposts.s1');
 
 
 

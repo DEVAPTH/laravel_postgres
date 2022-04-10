@@ -6,17 +6,13 @@
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 
 <head>
-    <title>Admindek | Admin Template</title>
+    <title>S3 Dashboard | @yield('title')</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description"
-        content="Admindek Bootstrap admin template made using Bootstrap 4 and it has huge amount of ready made feature, UI components, pages which completely fulfills any dashboard needs." />
-    <meta name="keywords"
-        content="flat ui, admin Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
-    <meta name="author" content="colorlib" />
 
-    <link rel="icon" href="https://colorlib.com/polygon/admindek/files/assets/images/favicon.ico" type="image/x-icon">
+
+    {{-- <link rel="icon" href="https://colorlib.com/polygon/admindek/files/assets/images/favicon.ico" type="image/x-icon"> --}}
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Quicksand:500,700" rel="stylesheet">
@@ -33,6 +29,9 @@
 
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/widget.css')}}">
+    @stack('style')
+    @livewireStyles
+    @livewireScripts
 </head>
 
 <body>
@@ -188,6 +187,8 @@
             <div class="pcoded-main-container">
                 <div class="pcoded-wrapper">
 
+                                {{ $slot ?? '' }}
+
                     @include('dashboard.sidebar')
 
                     <div class="pcoded-content">
@@ -217,7 +218,7 @@
                         </div> --}}
 
                         <div class="pcoded-inner-content">
-
+                            {{ $slot ?? '' }}
                             @yield('content')
                         </div>
                     </div>
@@ -271,6 +272,8 @@
     </script>
     <script src="{{asset('assets/js/rocket-loader.min.js')}}" data-cf-settings="d2d1d6e2f87cbebdf4013b26-|49" defer=""></script>
     @yield('js')
+    @stack('js')
+
 </body>
 
 <!-- Mirrored from colorlib.com/polygon/admindek/default/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 12 Dec 2019 16:08:25 GMT -->

@@ -60,7 +60,8 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('dashboard/admin-create/{id}',[Controller::class,'show'])->name('dashboard.admin-edit');
 
 
-    Route::get('dashboard/reposts/s1',S1ReportComponent::class)->name('dashboard.reposts.s1');
+    // Route::get('dashboard/reposts/s1',S1ReportComponent::class)->name('dashboard.reposts.s1');
+    Route::view('dashboard/admin-lists','dashboard.components.admin-list')->name('dashboard.admin-lists');
 
 
 

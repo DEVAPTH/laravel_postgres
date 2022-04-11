@@ -31,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/widget.css')}}">
     @stack('style')
     @livewireStyles
-    @livewireScripts
+    @powerGridStyles
 </head>
 
 <body>
@@ -220,6 +220,7 @@
                         <div class="pcoded-inner-content">
                             {{ $slot ?? '' }}
                             @yield('content')
+
                         </div>
                     </div>
 
@@ -232,20 +233,24 @@
     </div>
 
 
-    <script data-cfasync="false" src="{{asset('assets/js/email-decode.min.js')}}"></script>
-    <script type="d2d1d6e2f87cbebdf4013b26-text/javascript" src="{{asset('assets/js/jquery.min.js')}}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+    {{-- <script data-cfasync="false" src="{{asset('assets/js/email-decode.min.js')}}"></script> --}}
+   <script type="d2d1d6e2f87cbebdf4013b26-text/javascript" src="{{asset('assets/js/jquery.min.js')}}"></script>
     <script type="d2d1d6e2f87cbebdf4013b26-text/javascript" src="{{asset('assets/js/jquery-ui.min.js')}}"></script>
     <script type="d2d1d6e2f87cbebdf4013b26-text/javascript" src="{{asset('assets/js/popper.min.js')}}"></script>
-    <script type="d2d1d6e2f87cbebdf4013b26-text/javascript" src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+    {{-- <script type="d2d1d6e2f87cbebdf4013b26-text/javascript" src="{{asset('assets/js/bootstrap.min.js')}}"></script> --}}
 
     <script src="{{asset('assets/js/waves.min.js')}}" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
 
     <script type="d2d1d6e2f87cbebdf4013b26-text/javascript" src="{{asset('assets/js/jquery.slimscroll.js')}}"></script>
 
-    <script src="{{asset('assets/js/jquery.flot.js')}}" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
+    {{-- <script src="{{asset('assets/js/jquery.flot.js')}}" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
     <script src="{{asset('assets/js/jquery.flot.categories.js')}}" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
     <script src="{{asset('assets/js/curvedlines.js')}}" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
-    <script src="{{asset('assets/js/jquery.flot.tooltip.min.js')}}" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
+    <script src="{{asset('assets/js/jquery.flot.tooltip.min.js')}}" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script> --}}
 
     <script src="{{asset('assets/js/chartist.js')}}" type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
 
@@ -258,22 +263,12 @@
     <script type="d2d1d6e2f87cbebdf4013b26-text/javascript" src="{{asset('assets/js/custom-dashboard.min.js')}}"></script>
     <script type="d2d1d6e2f87cbebdf4013b26-text/javascript" src="{{asset('assets/js/script.min.js')}}"></script>
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"
-        type="d2d1d6e2f87cbebdf4013b26-text/javascript"></script>
-    <script type="d2d1d6e2f87cbebdf4013b26-text/javascript">
-        window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-23581568-13');
-    </script>
     <script src="{{asset('assets/js/rocket-loader.min.js')}}" data-cf-settings="d2d1d6e2f87cbebdf4013b26-|49" defer=""></script>
     @yield('js')
     @stack('js')
-
+@livewireScripts
+    @powerGridScripts
 </body>
 
 <!-- Mirrored from colorlib.com/polygon/admindek/default/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 12 Dec 2019 16:08:25 GMT -->

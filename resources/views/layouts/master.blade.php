@@ -45,7 +45,7 @@
         <div class="pcoded-overlay-box"></div>
         <div class="pcoded-container navbar-wrapper">
 
-            @include('dashboard.navbar')
+            @include('layouts.navbar')
 
 
 
@@ -54,7 +54,7 @@
 
                                 {{-- {{ $slot ?? '' }} --}}
 
-                    @include('dashboard.sidebar')
+                    @include('layouts.sidebar')
 
                     <div class="pcoded-content">
 

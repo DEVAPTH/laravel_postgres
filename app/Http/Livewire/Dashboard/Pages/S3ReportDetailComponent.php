@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Dashboard\Pages;
 
+use App\Models\S3DogReport;
 use Livewire\Component;
 
 class S3ReportDetailComponent extends Component
@@ -12,7 +13,7 @@ class S3ReportDetailComponent extends Component
     }
     public function render()
     {
-        $data=S1DogReport::find($this->data_id);
+        $data=S3DogReport::find($this->data_id);
 
         return view('livewire.dashboard.pages.s3-report-detail-component')->layout('layouts.master')->with([
             'data'=>$data

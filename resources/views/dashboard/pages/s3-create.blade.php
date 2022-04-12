@@ -3,7 +3,7 @@
 @section('content')
 <div class="row justify-content-center mt-4">
     <div class="col-md-12">
-        <div class="card">
+        <div class="card ml-5 mr-5 mt-0">
             <div class="card-header">
                 <h5>Admin Create Form</h5>
             </div>
@@ -11,7 +11,7 @@
                @if (session('status'))
                 <p class="alert alert-success">{{session('status')}}</p>
                @endif
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form action="{{url('dashboard/s3-create')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-md-4">
@@ -22,13 +22,13 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="">နိင်ငံသားစီရင်ကတ််ပြား</label>
+                                <label for="">အမည်ရင်း</label>
                                 <input type="text" class="form-control" name="nrc_name" required>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="">အမည်</label>
+                                <label for="">အခြားအမည်</label>
                                 <input type="text" class="form-control" name="nick_name" required>
                             </div>
                         </div>
@@ -58,58 +58,23 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="">နိင်ငံသားကုတ်</label>
+                                <label for="">CountryCode</label>
                                 <input type="text" class="form-control" name="country_code" required>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="">ဖုန်းနံပတ်</label>
+                                <label for="">ဖုန်းနံပါတ်</label>
                                 <input type="number" class="form-control" name="phone_number" required>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="">အကြောင်းရာ</label>
+                                <label for="">အကြောင်းအရာ</label>
                                 <input type="text" class="form-control" name="about_report" required>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="">Consent_to_responsibility</label>
-                                <input type="text" class="form-control" name="consent_to_responsibility" required>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="">ပြည်နယ်သတင်းပို့ပါ။</label>
-                                <input type="text" class="form-control" name="report_state" required>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="">ပြက္ခဒိန်</label>
-                                <input type="date" class="form-control" name="last_updated" required>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="">အကဲဖြတ်သည်_</label>
-                                <input type="text" class="form-control" name="moderated_by" required>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="">အစီရင်ခံစာ_ဌာနခွဲ</label>
-                                <input type="text" class="form-control" name="report_division" required>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="">အစီရင်ခံစာ</label>
-                                <input type="text" class="form-control" name="reported_by" required>
-                            </div>
-                        </div>
+
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="">အသားရောင်</label>
@@ -134,8 +99,45 @@
                                 <input type="text" class="form-control" name="telegram_username" required>
                             </div>
                         </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="">Consent_to_responsibility</label>
+                                <input type="text" class="form-control" name="consent_to_responsibility" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="">report_state</label>
+                                <input type="text" class="form-control" name="report_state" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="">last_updated</label>
+                                <input type="date" class="form-control" name="last_updated" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="">moderated_by</label>
+                                <input type="text" class="form-control" name="moderated_by" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="">report_division</label>
+                                <input type="text" class="form-control" name="report_division" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="">reported_by</label>
+                                <input type="text" class="form-control" name="reported_by" required>
+                            </div>
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-primary float-right">Send</button>
+                    <button type="submit" class="btn btn-primary float-right">Create</button>
                 </form>
             </div>
         </div>

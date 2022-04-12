@@ -24,6 +24,12 @@
                                 <span class="pcoded-mtext">S3 Data List</span>
                             </a>
                         </li>
+
+                        <li class="nav-link {{Route::currentRouteName()=='s3-dog-create' ? 'active':''}}">
+                            <a href="{{ route('s3-dog-create')}}" class="waves-effect waves-dark">
+                                <span class="pcoded-mtext">Create S3 Data</span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 

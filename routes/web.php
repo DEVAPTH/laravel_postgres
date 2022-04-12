@@ -32,7 +32,7 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['auth', 'admin']], function () {
      //Create S3
-    Route::get('/dahsboard/s3-reports', [S3Controller::class, 'create'])->name('s3-dog-create');
+    Route::view('/dahsboard/s3-reports', 'dashboard.pages.s3-create')->name('s3-dog-create');
     Route::post('/dashboard/s3-create', [S3Controller::class, 'store']);
 
     //report detail

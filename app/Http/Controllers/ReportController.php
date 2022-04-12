@@ -10,29 +10,28 @@ use Illuminate\Http\Request;
 class ReportController extends Controller
 {
     public function getS1Reports(){
-       $data= S1DogReport::paginate();
-       return view('dashboard.pages.s1-reports')->with([
-        'data'=>$data
+       $reports= S1DogReport::latest()->paginate(20);
+       return view('dashboard.pages.s1-reports',[
+        'reports'=>$reports
     ]);
     }
 
     public function getS2Reports(){
-        $data= S2DogReport::orderBy('id','desc')->paginate();
-        return view('dashboard.pages.s1-reports')->with([
-            'data'=>$data
+        $reports= S2DogReport::orderBy('id','desc')->paginate();
+        return view('dashboard.pages.s2-reports')->with([
+            'reports'=>$reports
         ]);
 
      }
 
      public function s1reportDetail($id){
          $data=S1DogReport::find($id);
-        return view('layouts.personal.detail',compact('data'));
+        return view('dashboard.pages.report-detail',compact('data'));
 
      }
 
      public function s2reportDetail($id){
         $data=S2DogReport::find($id);
-        dd($data);
        return view('layouts.personal.detail',compact('data'));
 
     }
@@ -47,9 +46,9 @@ class ReportController extends Controller
 
     public function getS3Reports()
     {
-       $datas = S3DogReport::paginate();
+       $reports = S3DogReport::latest()->paginate();
         return view('dashboard.pages.s3-reports')->with([
-            'datas'=>$datas
+            'reports'=>$reports
         ]);
     }
 

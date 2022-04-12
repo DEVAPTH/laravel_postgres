@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Custom\CustomHelper;
 use Illuminate\Http\Request;
-use App\Models\PersonalProfile;
-use Illuminate\Support\Facades\DB;
+use App\Http\Custom\CustomHelper;
 
-class PersonalController extends Controller
+class S3Controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +14,7 @@ class PersonalController extends Controller
      */
     public function index()
     {
-        $datas =DB::connection('pgsql_db1')->table('s1_dog_reports')->get();
-
-        return view('home',compact('datas'));
+        //
     }
 
     /**
@@ -28,7 +24,7 @@ class PersonalController extends Controller
      */
     public function create()
     {
-        return view('layouts.personal.create');
+        return view('dashboard.pages.s3-create');
     }
 
     /**
@@ -40,9 +36,9 @@ class PersonalController extends Controller
     public function store(Request $request)
     {
         $obj = new CustomHelper();
+        $obj->createSThreeData($request);
 
-        dd($obj);
-
+        return redirect('/dahsboard/s3-reports')->with('status','Successfull Data Create For S1');
     }
 
     /**
@@ -53,9 +49,7 @@ class PersonalController extends Controller
      */
     public function show($id)
     {
-        $data = PersonalProfile::find($id);
-        // $datas =DB::connection('pgsql')->table('personal_profiles')->get();
-        return view('layouts.personal.detail',compact('data'));
+        //
     }
 
     /**

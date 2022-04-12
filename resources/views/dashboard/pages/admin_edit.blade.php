@@ -19,6 +19,7 @@
                 @endif
                 <form action="" method="POST">
                     @csrf
+                    @method('PUT')
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -43,7 +44,7 @@
                             <div class="form-group">
                                 <label for="">Select Type</label>
                                 <select id="type" name="type" class="form-control">
-                                    <option value="{{$data->id}}">{{$data->type}}</option>
+                                    <option value="">{{$data->type}}</option>
                                  </select>
                             </div>
                         </div>

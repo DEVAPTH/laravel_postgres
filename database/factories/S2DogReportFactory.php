@@ -25,7 +25,7 @@ class S2DogReportFactory extends Factory
             'height_inches' => $this->faker->numberBetween(1, 12),
             'address' => $this->faker->address,
             'country_code' => $this->faker->numberBetween(1, 999),
-            'phone_number' => $this->faker->numberBetween(1, 999),
+            'phone_number' => $this->faker->phoneNumber(),
             'about_report' => $this->faker->text,
             'consent_to_responsibility' => $this->faker->boolean,
             'report_state' => $this->faker->word,

@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\S1DogReport;
+use App\Models\S3DogReport;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\QueryException;
 use Illuminate\Database\Eloquent\Builder;
@@ -14,7 +14,7 @@ use PowerComponents\LivewirePowerGrid\PowerGridComponent;
 use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
 use PowerComponents\LivewirePowerGrid\Rules\Rule;
 
-final class S1DogReportTable extends PowerGridComponent
+final class S3DogReportTable extends PowerGridComponent
 {
     use ActionButton;
 
@@ -45,13 +45,13 @@ final class S1DogReportTable extends PowerGridComponent
     */
 
     /**
-     * PowerGrid datasource.
-     *
-     * @return  \Illuminate\Database\Eloquent\Builder<\App\Models\S1DogReport>|null
-     */
+    * PowerGrid datasource.
+    *
+    * @return  \Illuminate\Database\Eloquent\Builder<\App\Models\S3DogReport>|null
+    */
     public function datasource(): ?Builder
     {
-        return S1DogReport::query();
+        return S3DogReport::query();
     }
 
     /*
@@ -84,11 +84,11 @@ final class S1DogReportTable extends PowerGridComponent
     {
         return PowerGrid::eloquent()
             ->addColumn('id')
-             ->addColumn('pic', function (S1DogReport $model) {
-                return "<img src='".$model->pic."' width='60' height='60'/>";
-              })
-            ->addColumn('created_at_formatted', function (S1DogReport $model) {
+            ->addColumn('created_at_formatted', function(S3DogReport $model) { 
                 return Carbon::parse($model->created_at)->format('d/m/Y H:i:s');
+            })
+            ->addColumn('updated_at_formatted', function(S3DogReport $model) { 
+                return Carbon::parse($model->updated_at)->format('d/m/Y H:i:s');
             });
     }
 
@@ -101,7 +101,7 @@ final class S1DogReportTable extends PowerGridComponent
     |
     */
 
-    /**
+     /**
      * PowerGrid Columns.
      *
      * @return array<int, Column>
@@ -112,52 +112,24 @@ final class S1DogReportTable extends PowerGridComponent
             Column::add()
                 ->title('ID')
                 ->field('id')
-                ->searchable()
-                ->sortable(),
-
-                Column::add()
-                ->title('Photo')
-                ->field('pic'),
+                ->makeInputRange(),
 
             Column::add()
-                ->title('Name')
-                ->field('nrc_name')
+                ->title('CREATED AT')
+                ->field('created_at_formatted', 'created_at')
                 ->searchable()
-                ->makeInputText('nrc_name')
-                ->sortable(),
+                ->sortable()
+                ->makeInputDatePicker('created_at'),
 
             Column::add()
-                ->title('Nick Name')
-                ->field('nick_name')
+                ->title('UPDATED AT')
+                ->field('updated_at_formatted', 'updated_at')
                 ->searchable()
-                ->makeInputText('nick_name')
-                ->sortable(),
+                ->sortable()
+                ->makeInputDatePicker('updated_at'),
 
-            Column::add()
-                ->title('Address')
-                ->field('address')
-                ->searchable()
-                ->makeInputText('address')
-                ->sortable(),
-
-            // Column::add()
-            //     ->title('Phone No')
-            //     ->field('phone_number')
-            //     ->searchable()
-            //     ->makeInputText('phone_number')
-            //     ->sortable(),
-
-            // Column::add()
-            //     ->title('Created at')
-            //     ->field('created_at')
-            //     ->hidden(),
-
-            // Column::add()
-            //     ->title('Created at')
-            //     ->field('created_at_formatted')
-            //     ->makeInputDatePicker('created_at')
-            //     ->searchable()
-        ];
+        ]
+;
     }
 
     /*
@@ -168,29 +140,29 @@ final class S1DogReportTable extends PowerGridComponent
     |
     */
 
-    /**
-     * PowerGrid S1DogReport Action Buttons.
+     /**
+     * PowerGrid S3DogReport Action Buttons.
      *
      * @return array<int, \PowerComponents\LivewirePowerGrid\Button>
      */
 
-
+    /*
     public function actions(): array
     {
        return [
-           Button::add('view')
-               ->caption('Detail')
-               ->class('btn btn-primary btn-sm')
-               ->route('db1.report-detail', ['id' => 'id']),
+           Button::add('edit')
+               ->caption('Edit')
+               ->class('bg-indigo-500 cursor-pointer text-white px-3 py-2.5 m-1 rounded text-sm')
+               ->route('s3-dog-report.edit', ['s3-dog-report' => 'id']),
 
-        //    Button::add('destroy')
-        //        ->caption('Delete')
-        //        ->class('bg-red-500 cursor-pointer text-white px-3 py-2 m-1 rounded text-sm')
-        //        ->route('s1-dog-report.destroy', ['s1-dog-report' => 'id'])
-        //        ->method('delete')
+           Button::add('destroy')
+               ->caption('Delete')
+               ->class('bg-red-500 cursor-pointer text-white px-3 py-2 m-1 rounded text-sm')
+               ->route('s3-dog-report.destroy', ['s3-dog-report' => 'id'])
+               ->method('delete')
         ];
     }
-
+    */
 
     /*
     |--------------------------------------------------------------------------
@@ -200,8 +172,8 @@ final class S1DogReportTable extends PowerGridComponent
     |
     */
 
-    /**
-     * PowerGrid S1DogReport Action Rules.
+     /**
+     * PowerGrid S3DogReport Action Rules.
      *
      * @return array<int, \PowerComponents\LivewirePowerGrid\Rules\RuleActions>
      */
@@ -210,10 +182,10 @@ final class S1DogReportTable extends PowerGridComponent
     public function actionRules(): array
     {
        return [
-
+           
            //Hide button edit for ID 1
             Rule::button('edit')
-                ->when(fn($s1-dog-report) => $s1-dog-report->id === 1)
+                ->when(fn($s3-dog-report) => $s3-dog-report->id === 1)
                 ->hide(),
         ];
     }
@@ -228,8 +200,8 @@ final class S1DogReportTable extends PowerGridComponent
     |
     */
 
-    /**
-     * PowerGrid S1DogReport Update.
+     /**
+     * PowerGrid S3DogReport Update.
      *
      * @param array<string,string> $data
      */
@@ -238,7 +210,7 @@ final class S1DogReportTable extends PowerGridComponent
     public function update(array $data ): bool
     {
        try {
-           $updated = S1DogReport::query()
+           $updated = S3DogReport::query()->findOrFail($data['id'])
                 ->update([
                     $data['field'] => $data['value'],
                 ]);

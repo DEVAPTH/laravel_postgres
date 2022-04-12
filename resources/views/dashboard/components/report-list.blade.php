@@ -7,7 +7,15 @@
         </div>
         <div class="card-block">
             <div class="dt-responsive table-responsive">
-                <livewire:s1-dog-report-table/>
+                @if (Route::currentRouteName() == 'dashboard.s1-report-lists')
+                    <livewire:s1-dog-report-table />
+                @endif
+                @if (Route::currentRouteName() == 'dashboard.s2-report-lists')
+                    <livewire:s2-dog-report-table />
+                @endif
+                @if (Route::currentRouteName() == 'dashboard.s3-report-lists')
+                    <livewire:s3-dog-report-table />
+                @endif
             </div>
         </div>
     </div>

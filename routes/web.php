@@ -39,9 +39,9 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     //Personal Details Data
     Route::get('/personal_detail/{id}',[Controller::class,'personal_show'])->name('personal.show');
 
-    Route::get('/dashboard/s1-reports', [ReportController::class,'getS1Reports'])->name('db1.reports');
-    Route::get('/dashboard/s2-reports', [ReportController::class,'getS2Reports'])->name('db2.reports');
-    Route::get('/dahsboard/s3-reports', [ReportController::class,'getS3Reports'])->name('db3.reports');
+    // Route::get('/dashboard/s1-reports', [ReportController::class,'getS1Reports'])->name('db1.reports');
+    // Route::get('/dashboard/s2-reports', [ReportController::class,'getS2Reports'])->name('db2.reports');
+    // Route::get('/dahsboard/s3-reports', [ReportController::class,'getS3Reports'])->name('db3.reports');
 
 
     Route::get('dashboard/s1-reports/{id}',[ReportController::class,'s1reportDetail'])->name('db1.report-detail');
@@ -63,6 +63,8 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     // Route::get('dashboard/reposts/s1',S1ReportComponent::class)->name('dashboard.reposts.s1');
     Route::view('dashboard/admin-lists','dashboard.components.admin-list')->name('dashboard.admin-lists');
     Route::view('dashboard/reposts/s1','dashboard.components.report-list')->name('dashboard.s1-report-lists');
+    Route::view('dashboard/reposts/s2','dashboard.components.report-list')->name('dashboard.s2-report-lists');
+    Route::view('dashboard/reposts/s3','dashboard.components.report-list')->name('dashboard.s3-report-lists');
 
 
 

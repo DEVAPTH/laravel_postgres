@@ -82,7 +82,14 @@ final class S2DogReportTable extends PowerGridComponent
     */
     public function addColumns(): ?PowerGridEloquent
     {
-        return PowerGrid::eloquent();
+        return PowerGrid::eloquent()
+            ->addColumn('id')
+             ->addColumn('pic', function (S2DogReport $model) {
+                return "<img src='".$model->pic."' width='60' height='60'/>";
+              })
+            ->addColumn('created_at_formatted', function (S2DogReport $model) {
+                return Carbon::parse($model->created_at)->format('d/m/Y H:i:s');
+            });
     }
 
     /*
@@ -102,7 +109,55 @@ final class S2DogReportTable extends PowerGridComponent
     public function columns(): array
     {
         return [
-        ]
+            Column::add()
+                ->title('ID')
+                ->field('id')
+                ->searchable()
+                ->sortable(),
+
+                Column::add()
+                ->title('Photo')
+                ->field('pic'),
+
+            Column::add()
+                ->title('Name')
+                ->field('nrc_name')
+                ->searchable()
+                ->makeInputText('nrc_name')
+                ->sortable(),
+
+            Column::add()
+                ->title('Nick Name')
+                ->field('nick_name')
+                ->searchable()
+                ->makeInputText('nick_name')
+                ->sortable(),
+
+            Column::add()
+                ->title('Address')
+                ->field('address')
+                ->searchable()
+                ->makeInputText('address')
+                ->sortable(),
+
+            // Column::add()
+            //     ->title('Phone No')
+            //     ->field('phone_number')
+            //     ->searchable()
+            //     ->makeInputText('phone_number')
+            //     ->sortable(),
+
+            // Column::add()
+            //     ->title('Created at')
+            //     ->field('created_at')
+            //     ->hidden(),
+
+            // Column::add()
+            //     ->title('Created at')
+            //     ->field('created_at_formatted')
+            //     ->makeInputDatePicker('created_at')
+            //     ->searchable()
+        ];
 ;
     }
 
@@ -120,23 +175,19 @@ final class S2DogReportTable extends PowerGridComponent
      * @return array<int, \PowerComponents\LivewirePowerGrid\Button>
      */
 
-    /*
+
     public function actions(): array
     {
        return [
-           Button::add('edit')
-               ->caption('Edit')
-               ->class('bg-indigo-500 cursor-pointer text-white px-3 py-2.5 m-1 rounded text-sm')
-               ->route('s2-dog-report.edit', ['s2-dog-report' => 'id']),
+           Button::add('view')
+               ->caption('Detail')
+               ->class('btn btn-primary btn-sm')
+               ->route('db1.report-detail', ['id' => 'id']),
 
-           Button::add('destroy')
-               ->caption('Delete')
-               ->class('bg-red-500 cursor-pointer text-white px-3 py-2 m-1 rounded text-sm')
-               ->route('s2-dog-report.destroy', ['s2-dog-report' => 'id'])
-               ->method('delete')
+         
         ];
     }
-    */
+
 
     /*
     |--------------------------------------------------------------------------
@@ -156,7 +207,7 @@ final class S2DogReportTable extends PowerGridComponent
     public function actionRules(): array
     {
        return [
-           
+
            //Hide button edit for ID 1
             Rule::button('edit')
                 ->when(fn($s2-dog-report) => $s2-dog-report->id === 1)

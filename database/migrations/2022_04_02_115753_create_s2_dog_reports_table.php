@@ -23,7 +23,7 @@ return new class extends Migration
             $table->integer('height_inches');
             $table->text('address');
             $table->integer('country_code');
-            $table->integer('phone_number');
+            $table->text('phone_number');
             $table->text('about_report');
             $table->boolean('consent_to_responsibility');
             $table->string('report_state');

@@ -26,13 +26,12 @@ class ReportController extends Controller
 
      public function s1reportDetail($id){
          $data=S1DogReport::find($id);
-        return view('layouts.personal.detail',compact('data'));
+        return view('dashboard.pages.report-detail',compact('data'));
 
      }
 
      public function s2reportDetail($id){
         $data=S2DogReport::find($id);
-        dd($data);
        return view('layouts.personal.detail',compact('data'));
 
     }

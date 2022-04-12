@@ -29,6 +29,7 @@
 
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/widget.css')}}">
+    <link rel="stylesheet" href="text/css" href="">
     @stack('style')
     @livewireStyles
     @powerGridStyles
@@ -46,7 +47,7 @@
 
             @include('dashboard.navbar')
 
-            
+
 
             <div class="pcoded-main-container">
                 <div class="pcoded-wrapper">

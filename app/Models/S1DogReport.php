@@ -13,4 +13,7 @@ class S1DogReport extends Model
 
     protected $guarded = [];
 
+
+
+
 }

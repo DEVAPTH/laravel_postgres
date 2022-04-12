@@ -8,6 +8,7 @@ use App\Http\Controllers\S3Controller;
 use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\ReportController;
 use App\Http\Livewire\Dashboard\Pages\ReportDetailComponent;
+use App\Http\Livewire\Dashboard\Pages\S1ReportDetailComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +36,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::post('/dashboard/s3-create', [S3Controller::class, 'store']);
 
     //report detail
-    Route::get('dashboard/s1-reports/{id}', ReportDetailComponent::class)->name('db1.report-detail');
+    Route::get('dashboard/s1-reports/{id}', S1ReportDetailComponent::class)->name('db1.report-detail');
 
     // Route::get('dashboard/s1-reports/{id}',[ReportController::class,'s1reportDetail'])->name('db1.report-detail');
     Route::get('dashboard/s2-reports/{id}', [ReportController::class, 's2reportDetail'])->name('db2.report-detail');

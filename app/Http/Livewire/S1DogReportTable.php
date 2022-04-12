@@ -51,7 +51,7 @@ final class S1DogReportTable extends PowerGridComponent
      */
     public function datasource(): ?Builder
     {
-        return S1DogReport::query();
+        return S1DogReport::query()->orderBy('id', 'desc');
     }
 
     /*

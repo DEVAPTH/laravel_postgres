@@ -51,7 +51,7 @@ final class S2DogReportTable extends PowerGridComponent
     */
     public function datasource(): ?Builder
     {
-        return S2DogReport::query();
+        return S2DogReport::query()->orderBy('id', 'desc');
     }
 
     /*
@@ -158,7 +158,7 @@ final class S2DogReportTable extends PowerGridComponent
             //     ->makeInputDatePicker('created_at')
             //     ->searchable()
         ];
-;
+
     }
 
     /*
@@ -183,8 +183,6 @@ final class S2DogReportTable extends PowerGridComponent
                ->caption('Detail')
                ->class('btn btn-primary btn-sm')
                ->route('db1.report-detail', ['id' => 'id']),
-
-         
         ];
     }
 

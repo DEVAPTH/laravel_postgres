@@ -52,7 +52,7 @@
             <div class="pcoded-main-container">
                 <div class="pcoded-wrapper">
 
-                                {{ $slot ?? '' }}
+                                {{-- {{ $slot ?? '' }} --}}
 
                     @include('dashboard.sidebar')
 

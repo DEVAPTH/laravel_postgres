@@ -7,6 +7,7 @@ use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\PersonalProfileData;
 use App\Http\Controllers\PersonalDetailDataController;
 use App\Http\Controllers\ReportController;
+use App\Http\Livewire\Dashboard\Pages\ReportDetailComponent;
 use App\Http\Livewire\Dashboard\Pages\S1ReportComponent;
 
 /*
@@ -44,7 +45,8 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     // Route::get('/dahsboard/s3-reports', [ReportController::class,'getS3Reports'])->name('db3.reports');
 
 
-    Route::get('dashboard/s1-reports/{id}',[ReportController::class,'s1reportDetail'])->name('db1.report-detail');
+    Route::get('dashboard/s1-reports/{id}',ReportDetailComponent::class)->name('db1.report-detail');
+    // Route::get('dashboard/s1-reports/{id}',[ReportController::class,'s1reportDetail'])->name('db1.report-detail');
     Route::get('dashboard/s2-reports/{id}',[ReportController::class,'s2reportDetail'])->name('db2.report-detail');
     Route::get('/dahsboard/s3-reports/{id}', [ReportController::class,'s3reportDetail'])->name('db3.report-detail');
 

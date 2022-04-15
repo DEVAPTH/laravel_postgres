@@ -65,6 +65,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('dashboard/admin-edit/{id}',[Controller::class,'show'])->name('dashboard.admin-edit');
     Route::put('dashboard/admin-edit/{id}',[Controller::class,'update']);
 
+    Route::post('dahsboard/approve/{id}',[Controller::class,'approve'])->name('admin-approve');
 });
 
 

@@ -88,6 +88,7 @@ class CustomHelper{
 
         //Data Store
         $data =new S3DogReport();
+        $data->setConnection('pgsql_db3');
         $data->pic = $filename;
         $data->nrc_name = $request->nrc_name;
         $data->nick_name = $request->nick_name;
@@ -119,13 +120,13 @@ class CustomHelper{
             'email'=>'required',
             'password'=>'required',
         ]);
-
-        User::create([
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'password'=>$request->password,
-            'type'=>$request->type,
-        ]);
+        $user = new User();
+        $user->setConnection('pgsql_db3');
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        // $user->type = $request->type;
+        $user->save();
     }
 
     public function adminUpdate(Request $request)

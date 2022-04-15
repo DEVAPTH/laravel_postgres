@@ -17,7 +17,6 @@
                             <th>No</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Password</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -27,9 +26,10 @@
                             <td>{{$data->id}}</td>
                             <td>{{$data->name}}</td>
                             <td>{{$data->email}}</td>
-                            <td>{{ Str::limit($data->password, 10) }}</td>
+                            {{-- <td>{{ Str::limit($data->password, 10) }}</td> --}}
                             <td>
                                 <div class="form-row">
+                                    <a href="{{route('admin-approve',$data->id)}}" class="btn btn-warning btn-sm" style="height:35px;margin-right:10px">Peding</a>
                                     <a href="{{route('dashboard.admin-edit',$data->id)}}" class="btn btn-success btn-sm" style="height:35px;margin-right:10px">Edit</a>
                                     <form action="{{route('dashboard.admin-delete', $data->id)}}" method="POST">
                                         @csrf
@@ -40,9 +40,7 @@
                             </td>
                         </tr>
                         @endforeach
-
                     </tbody>
-
                 </table>
             </div>
         </div>

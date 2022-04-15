@@ -23,7 +23,7 @@ class Controller extends BaseController
 
     public function getAdminList()
     {
-        $admin_list = User::all();
+        $admin_list = User::orderBy('id','desc')->get();
         return view('dashboard.pages.admin', compact('admin_list'));
     }
 
@@ -64,6 +64,13 @@ class Controller extends BaseController
         $obj->adminUpdate($request,$id);
 
         return redirect()->route('dashboard.admin-list')->with('status','Successfull Data Update');
+    }
+
+    public function approve($id){
+       $users =  User::find($id);
+       $users->type =config('status.Approve');
+       $users->save();
+       return redirect()->route('')
     }
 
 

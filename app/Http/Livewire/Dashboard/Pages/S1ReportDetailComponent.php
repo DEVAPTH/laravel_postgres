@@ -13,7 +13,7 @@ class S1ReportDetailComponent extends Component
     }
     public function render()
     {
-        $data=S1DogReport::find($this->data_id);
+        $data=S1DogReport::findOrFail($this->data_id);
 
         return view('livewire.dashboard.pages.s1-report-detail-component')->layout('layouts.master')->with([
             'data'=>$data

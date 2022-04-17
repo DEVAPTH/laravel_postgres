@@ -5,10 +5,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\S1Controller;
 use App\Http\Controllers\S2Controller;
 use App\Http\Controllers\S3Controller;
-use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\PersonalController;
 use App\Http\Livewire\Dashboard\Pages\ReportDetailComponent;
 use App\Http\Livewire\Dashboard\Pages\S1ReportDetailComponent;
+use App\Http\Livewire\Dashboard\Pages\S2ReportDetailComponent;
+use App\Http\Livewire\Dashboard\Pages\S3ReportDetailComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,15 +38,18 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::post('/dashboard/s3-create', [S3Controller::class, 'store']);
 
     //report detail
-    Route::get('dashboard/s1-reports/{id}', S1ReportDetailComponent::class)->name('db1.report-detail');
+    Route::get('dashboard/reports/s1-reports/{id}', S1ReportDetailComponent::class)->name('db1.report-detail');
+    Route::get('dashboard/reports/s2-reports/{id}', S2ReportDetailComponent::class)->name('db2.report-detail');
+    Route::get('dashboard/reports/s3-reports/{id}', S3ReportDetailComponent::class)->name('db3.report-detail');
 
-    // Route::get('dashboard/s1-reports/{id}',[ReportController::class,'s1reportDetail'])->name('db1.report-detail');
-    Route::get('dashboard/s2-reports/{id}', [ReportController::class, 's2reportDetail'])->name('db2.report-detail');
-    Route::get('/dahsboard/s3-reports/{id}', [ReportController::class, 's3reportDetail'])->name('db3.report-detail');
+    //table list
+    Route::view('dashboard/reposts/s1', 'dashboard.components.report-list')->name('dashboard.s1-report-lists');
+    Route::view('dashboard/reposts/s2', 'dashboard.components.report-list')->name('dashboard.s2-report-lists');
+    Route::view('dashboard/reposts/s3', 'dashboard.components.report-list')->name('dashboard.s3-report-lists');
 
     //move report
-    Route::get('dashboard/copy-s1-to-s3/{s1_id}', [ReportController::class, 'copyS1ToS3'])->name('db1.copy-s1-to-s3');
-    Route::get('/dahsboard/copy-s3-to-s2/{s3_id}', [ReportController::class, 'copyS3ToS2'])->name('db3.copy-s3-to-s2');
+    Route::get('dashboard/reports/copy-s1-to-s3/{s1_id}', [ReportController::class, 'copyS1ToS3'])->name('db1.copy-s1-to-s3');
+    Route::get('/dahsboard/reports/copy-s3-to-s2/{s3_id}', [ReportController::class, 'copyS3ToS2'])->name('db3.copy-s3-to-s2');
 
     //admin
     Route::get('dashboard/admin-list', [Controller::class, 'getAdminList'])->name('dashboard.admin-list');
@@ -58,7 +63,5 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     //power-grid table
     // Route::get('dashboard/reposts/s1',S1ReportComponent::class)->name('dashboard.reposts.s1');
     Route::view('dashboard/admin-lists', 'dashboard.components.admin-list')->name('dashboard.admin-lists');
-    Route::view('dashboard/reposts/s1', 'dashboard.components.report-list')->name('dashboard.s1-report-lists');
-    Route::view('dashboard/reposts/s2', 'dashboard.components.report-list')->name('dashboard.s2-report-lists');
-    Route::view('dashboard/reposts/s3', 'dashboard.components.report-list')->name('dashboard.s3-report-lists');
+
 });

@@ -1,11 +1,11 @@
 <div class="card ">
     <div class="card-header d-flex justify-content-between">
-        <h5>Detail</h5>
-        <div>
+        <h5>Detail Information (S2)</h5>
 
-            <button class="btn btn-outline-success rounded mr-2" type="button">Move to S3</button>
+        <div>
             <button class="btn btn-info rounded mr-2" type="button">Edit</button>
-            <button class="btn btn-danger rounded mr-2" type="button">Delete</button>
+            <button class="btn btn-danger rounded mr-2" type="button"
+                onclick="deleteReport({{ $data['id'] }})">Delete</button>
         </div>
     </div>
     <div class="d-flex px-2">
@@ -131,3 +131,50 @@
         </div>
     </div>
 </div>
+
+<script>
+    function deleteReport(id) {
+        var url = "{{ url('api/dashboard/reports/s2-delete') }}/" + id;
+        console.log('url', url);
+
+        swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this data!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    fetch(url, {
+                            method: 'DELETE',
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                                'accept': 'application/json',
+                            }
+                        })
+                        .then(res => res.json())
+                        .then(res => {
+                            console.log('res', res);
+                            if (res.status == 'success') {
+                                swal("Poof! Your data has been deleted!", {
+                                    icon: "success",
+                                }).then(() => {
+                                    window.location.href =
+                                    "{{ route('dashboard.s2-report-lists') }}";
+                                });
+                            } else {
+                                swal("Error!", res.message, "error");
+                            }
+                        });
+
+                } else {
+                    swal("Your imaginary file is safe!");
+                }
+            })
+            .catch(err => {
+                swal("Error!", err.message, "error");
+            });
+
+    }
+</script>

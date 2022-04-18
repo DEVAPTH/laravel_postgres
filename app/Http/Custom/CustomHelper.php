@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 
 use App\Models\PersonalProfile;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class CustomHelper{
 
@@ -82,7 +83,7 @@ class CustomHelper{
 
     public function createSThreeData(Request $request)
     {
-       
+
     }
 
     public function adminCreate(Request $request)
@@ -96,8 +97,7 @@ class CustomHelper{
         User::create([
             'name'=>$request->name,
             'email'=>$request->email,
-            'password'=>$request->password,
-            'type'=>$request->type,
+            'password'=>Hash::make($request->password),
         ]);
     }
 

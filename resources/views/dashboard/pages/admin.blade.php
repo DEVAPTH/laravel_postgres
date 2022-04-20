@@ -17,7 +17,6 @@
                             <th>No</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Password</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -27,7 +26,6 @@
                             <td>{{$data->id}}</td>
                             <td>{{$data->name}}</td>
                             <td>{{$data->email}}</td>
-                            <td>{{ Str::limit($data->password, 10) }}</td>
                             <td>
                                 <div class="form-row">
                                     <a href="{{route('dashboard.admin-edit',$data->id)}}" class="btn btn-success btn-sm" style="height:35px;margin-right:10px">Edit</a>

@@ -61,4 +61,11 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::view('dashboard/reposts/s1', 'dashboard.components.report-list')->name('dashboard.s1-report-lists');
     Route::view('dashboard/reposts/s2', 'dashboard.components.report-list')->name('dashboard.s2-report-lists');
     Route::view('dashboard/reposts/s3', 'dashboard.components.report-list')->name('dashboard.s3-report-lists');
+
+    //s1 report detail
+    Route::get('dashboard/s1-dogs/{id}/edit',[Controller::class,'getReport'])->name('dashboard.dog-report');
+    Route::put('dashboard/s1-dogs/{id}',[Controller::class,'updateReport'])->name('dashboard.dog-edit');
+
+
 });
+

@@ -4,7 +4,8 @@
         <div>
 
             <button class="btn btn-outline-success rounded mr-2" type="button">Move to S3</button>
-            <button class="btn btn-info rounded mr-2" type="button">Edit</button>
+            <a href="{{route('dashboard.dog-report',$data['id'])}}" class="btn btn-primary">Edit</a>
+            {{-- <button class="btn btn-info rounded mr-2" type="button" onclick="alert('ok')">Edit</button> --}}
             <button class="btn btn-danger rounded mr-2" type="button">Delete</button>
         </div>
     </div>

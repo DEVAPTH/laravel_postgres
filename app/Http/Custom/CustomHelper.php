@@ -81,11 +81,6 @@ class CustomHelper{
 
     }
 
-    public function createSThreeData(Request $request)
-    {
-
-    }
-
     public function adminCreate(Request $request)
     {
         $validator = $request->validate([
@@ -113,7 +108,6 @@ class CustomHelper{
         $data->name = $request->name;
         $data->email = $request->email;
         $data->password = $request->password;
-        $data->type = $request->type;
         $data->save();
     }
 

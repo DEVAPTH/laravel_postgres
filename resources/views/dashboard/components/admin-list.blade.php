@@ -8,7 +8,6 @@
         <div class="card-block">
             <div class="dt-responsive table-responsive">
                 <livewire:user-table/>
-
                 {{-- @livewire('dashboard.pages.s1-report-component') --}}
             </div>
         </div>

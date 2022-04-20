@@ -90,14 +90,14 @@ class Controller extends BaseController
                 'nick_name'=>$request->nick_name,
                 'age'=>$request->age,
                 'height_feet'=>$request->height_feet,
-                'height_inches'=>$request->height_inches,
+                // 'height_inches'=>$request->height_inches,
                 'address'=>$request->address,
-                'country_code'=>$request->country_code,
+                // 'country_code'=>$request->country_code,
                 'phone_number'=>$request->phone_number,
                 'about_report'=>$request->about_report,
                 'consent_to_responsibility'=>$request->consent_to_responsibility,
                 'report_state'=>$request->report_state,
-                'last_updated'=>$request->last_updated,
+                // 'last_updated'=>$request->last_updated,
                 'moderated_by'=>$request->moderated_by,
                 'report_division'=>$request->report_division,
                 'reported_by'=>$request->reported_by,
@@ -107,8 +107,7 @@ class Controller extends BaseController
                 'telegram_username'=>$request->telegram_username
             ]);
         }
-        return back();
-
+    return redirect()->route('dashboard.s1-report-lists')->with('success','Dog updated Successfull');
     }
 
 }

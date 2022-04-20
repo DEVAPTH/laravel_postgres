@@ -52,7 +52,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::post('dashboard/admin-create', [Controller::class, 'store']);
     Route::delete('dashboard/admin-create/{id}', [Controller::class, 'destroy'])->name('dashboard.admin-delete');
     Route::get('dashboard/admin-edit/{id}', [Controller::class, 'show'])->name('dashboard.admin-edit');
-    Route::put('dashboard/admin-edit/{id}', [Controller::class, 'update']);
+    Route::put('dashboard/admin-edit/{id}', [Controller::class, 'update'])->name('dashboard.admin-update');
 
 
     //power-grid table

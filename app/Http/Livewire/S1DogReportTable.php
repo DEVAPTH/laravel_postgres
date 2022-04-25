@@ -181,7 +181,8 @@ final class S1DogReportTable extends PowerGridComponent
            Button::add('view')
                ->caption('Detail')
                ->class('btn btn-primary btn-sm')
-               ->route('db1.report-detail', ['id' => 'id']),
+               ->route('db1.report-detail', ['id' => 'id'])
+               ->target('_self'),
 
         //    Button::add('destroy')
         //        ->caption('Delete')

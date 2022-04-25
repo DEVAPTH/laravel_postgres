@@ -3,7 +3,15 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h5>Admin List</h5>
+            @if (Route::currentRouteName() == 'dashboard.s1-report-lists')
+                <h5>S1 List</h5>
+            @endif
+            @if (Route::currentRouteName() == 'dashboard.s2-report-lists')
+                <h5>S2 List</h5>
+            @endif
+            @if (Route::currentRouteName() == 'dashboard.s3-report-lists')
+                <h5>S3 List</h5>
+            @endif
         </div>
         <div class="card-block">
             <div class="dt-responsive table-responsive">

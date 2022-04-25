@@ -182,7 +182,7 @@ final class S3DogReportTable extends PowerGridComponent
             Button::add('view')
                 ->caption('Detail')
                 ->class('btn btn-primary btn-sm')
-                ->route('db1.report-detail', ['id' => 'id']),
+                ->route('db3.report-detail', ['id' => 'id']),
          ];
     }
 

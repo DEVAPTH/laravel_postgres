@@ -5,12 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\S1DogReport;
 use Illuminate\Http\Request;
-use App\Models\PersonalDetail;
-use App\Models\PersonalProfile;
 use App\Http\Custom\CustomHelper;
-use App\Models\PersonalDetailData;
-use Database\Seeders\PersonalData;
-use Illuminate\Support\Facades\DB;
+use App\Traits\ApiResponser;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
@@ -19,7 +15,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class Controller extends BaseController
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests,ApiResponser;
 
 
     public function getAdminList()

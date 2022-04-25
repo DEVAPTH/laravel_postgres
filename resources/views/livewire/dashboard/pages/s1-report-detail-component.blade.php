@@ -2,16 +2,17 @@
     <div class="card-header d-flex justify-content-between">
         <h5>Detail Information (S1)</h5>
         <div>
+
             <a href="{{ route('db1.copy-s1-to-s3', ['s1_id' => $data['id']]) }}"
                 class="btn btn-outline-success rounded mr-2" type="button">Move to S3</a>
-            <button class="btn btn-info rounded mr-2" type="button">Edit</button>
+            <a href="{{route('dashboard.dog-report',$data['id'])}}" class="btn btn-primary">Edit</a>
             <button class="btn btn-danger rounded mr-2" type="button"
                 onclick="deleteReport({{ $data['id'] }})">Delete</button>
+
         </div>
     </div>
     <div class="d-flex px-2">
         <div class="card ml-3 mt-5" style="flex: 0 0 300px">
-
 
             <div class="card-body deta">
                 <img src="{{ $data['pic'] }}" height="150" class=" object-cover rounded mb-3 d-block " alt="">

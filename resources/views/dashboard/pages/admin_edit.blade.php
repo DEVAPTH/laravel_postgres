@@ -2,10 +2,10 @@
 
 @section('content')
 <div class="row justify-content-center mt-4">
-    <div class="col-md-10">
+    <div class="col-md-8">
         <div class="card">
             <div class="card-header">
-                <h5>Admin Create Form</h5>
+                <h5>Admin Edit Form</h5>
             </div>
             <div class="card-block">
                 @if ($errors->any())
@@ -17,35 +17,23 @@
                         </ul>
                     </div>
                 @endif
-                <form action="" method="POST">
+                <form action="{{route('dashboard.admin-update',$data->id)}}" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="form-group">
                                 <label for="">Name</label>
                                 <input value="{{$data->name}}" type="text" class="form-control " name="name">
                             </div>
-                        </div>
-                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Email</label>
                                 <input value="{{$data->email}}" type="text" class="form-control" name="email">
                             </div>
-                        </div>
-                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Password</label>
                                 <input value="{{$data->password}}" type="password" class="form-control"  name="password" id="myInput">
                                 <input type="checkbox" onclick="myFunction()">Show Password
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="">Select Type</label>
-                                <select id="type" name="type" class="form-control">
-                                    <option value="">{{$data->type}}</option>
-                                 </select>
                             </div>
                         </div>
                     </div>

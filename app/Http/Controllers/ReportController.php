@@ -27,6 +27,7 @@ class ReportController extends Controller
         ]);
     }
 
+
     public function s1reportDetail($id)
     {
         $data = S1DogReport::find($id);

@@ -59,16 +59,12 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('dashboard/admin-edit/{id}', [Controller::class, 'show'])->name('dashboard.admin-edit');
     Route::put('dashboard/admin-edit/{id}', [Controller::class, 'update'])->name('dashboard.admin-update');
 
-
     //power-grid table
     // Route::get('dashboard/reposts/s1',S1ReportComponent::class)->name('dashboard.reposts.s1');
     Route::view('dashboard/admin-lists', 'dashboard.components.admin-list')->name('dashboard.admin-lists');
 
     //s1 report detail
-    Route::get('dashboard/s1-dogs/{id}/edit',[Controller::class,'getReport'])->name('dashboard.dog-report');
-    Route::put('dashboard/s1-dogs/{id}',[Controller::class,'updateReport'])->name('dashboard.dog-edit');
-
-
+    Route::get('dashboard/s3-dogs/{id}/edit',[Controller::class,'editS3'])->name('dashboard.s3-report');
+    Route::put('dashboard/s3-dogs/{id}',[Controller::class,'updateS3Report'])->name('dashboard.s3-update');
 
 });
-

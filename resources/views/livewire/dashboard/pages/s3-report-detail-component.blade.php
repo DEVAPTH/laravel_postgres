@@ -4,7 +4,7 @@
 
         <div> <a href="{{ route('db3.copy-s3-to-s2', ['s3_id' => $data['id']]) }}"
             class="btn btn-outline-success rounded mr-2" type="button">Move to S2 </a>
-        <button class="btn btn-info rounded mr-2" type="button">Edit</button>
+            <a href="{{route('dashboard.s3-report',$data['id'])}}" class="btn btn-primary">Edit</a>
         <button class="btn btn-danger rounded mr-2" type="button"
             onclick="deleteReport({{ $data['id'] }})">Delete</button>
         </div>

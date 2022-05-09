@@ -5,7 +5,7 @@
     <div class="card-header d-flex justify-content-between">
         <h5>Dog Edit Form</h5>
     </div>
-    <form action="{{route('dashboard.dog-edit',$data->id)}}" method="POST">
+    <form action="{{route('dashboard.s3-update',$data->id)}}" method="POST">
         @csrf
         @method('PUT')
         <div class="d-flex px-2">

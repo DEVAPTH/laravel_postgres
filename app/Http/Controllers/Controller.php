@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\S1DogReport;
 use Illuminate\Http\Request;
 use App\Http\Custom\CustomHelper;
+use App\Models\S3DogReport;
 use App\Traits\ApiResponser;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -63,15 +64,15 @@ class Controller extends BaseController
         return redirect()->route('dashboard.admin-list')->with('status','Successfull Data Update');
     }
 
-    public function getReport($id)
+    public function editS3($id)
     {
-        $datas=S1DogReport::find($id);
-        return view('dashboard.detail',['data'=>$datas]);
+        $data=S3DogReport::find($id);
+        return view('dashboard.pages.s3-detail',compact('data'));
     }
 
-    public function updateReport(Request $request,$id)
+    public function updateS3Report(Request $request,$id)
     {
-       $dogs = S1DogReport::findOrFail($id);
+       $dogs = S3DogReport::findOrFail($id);
         if($request->hasFile('pic')){
             $file = $request->file('pic');
             $extension = $file->getClientOriginalExtension();
@@ -103,7 +104,7 @@ class Controller extends BaseController
                 'telegram_username'=>$request->telegram_username
             ]);
         }
-    return redirect()->route('dashboard.s1-report-lists')->with('success','Dog updated Successfull');
+    return redirect()->route('dashboard.s3-report-lists')->with('success','Dog updated Successfull');
     }
 
 }

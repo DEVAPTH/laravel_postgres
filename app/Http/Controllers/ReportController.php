@@ -72,7 +72,6 @@ class ReportController extends Controller
         }
     }
 
-
     public function getS3Reports()
     {
         $reports = S3DogReport::latest()->paginate();
@@ -86,8 +85,6 @@ class ReportController extends Controller
         $data = S3DogReport::find($id);
         return view('layouts.personal.report3_detail', compact('data'));
     }
-
-
 
     public function s1Destroy($id)
     {
